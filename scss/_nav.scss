@@ -1,0 +1,144 @@
+.nav-toggle {
+    position: relative;
+    z-index: 999;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+    background: url('../images/icon-menu.svg') center no-repeat;
+    cursor: pointer;
+
+    &.close {
+        background: url('../images/icon-close-menu.svg') center no-repeat;
+    }
+}
+
+.nav-sidebar {
+    position: absolute;
+    top: 0;
+    right: -64%;
+    z-index: 99;
+    width: 64%;
+    height: 100%;
+
+    padding: 5.8rem 1.6rem;
+
+    background: $almost-white;
+    color: $medium-gray;
+
+    transition: right 0.4s ease-in-out;
+
+    &.slide-in {
+        right: 0;
+    }
+
+    a {
+        color: $medium-gray;
+    }
+
+    .nav {
+
+        .nav-content {
+
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            .nav-item {
+                padding: 0.4rem;
+                margin-bottom: 0.8rem;
+                cursor: pointer;
+
+                &.dropdown {
+                    .arrow {
+                        transform: rotate(180deg);
+                    }
+
+                    .submenu-feature {
+                        height: 158px;
+                    }
+
+                    .submenu-company {
+                        height: 108px;
+                    }
+                }
+
+                .arrow {
+                    display: inline-block;
+                    width: 10px;
+                    height: 6px;
+                    margin-left: 1rem;
+                    vertical-align: middle;
+                    transform: rotate(0);
+                    background: url('../images/icon-arrow-down.svg');
+                    transition: transform 0.4s ease-in-out;
+                }
+
+                .submenu {
+
+                    display: block;
+                    height: 0;
+                    transition: height 0.4s ease-in-out;
+                    overflow: hidden;
+
+                    .menu-item {
+                        margin: 1rem;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .icon {
+                            position: relative;
+                            top: 0.09rem;
+                            display: inline-block;
+                            width: 17px;
+                            height: 17px;
+                            margin-right: 0.6rem;
+                            background: {
+                                repeat: no-repeat;
+                                position: center;
+                            }
+
+                            &.icon-todo {
+                                background-image: url('../images/icon-todo.svg');
+                            }
+
+                            &.icon-calendar {
+                                background-image: url('../images/icon-calendar.svg');
+                            }
+
+                            &.icon-reminder {
+                                background-image: url('../images/icon-reminders.svg');
+                            }
+
+                            &.icon-planning {
+                                background-image: url('../images/icon-planning.svg');
+                            }
+                        }
+                    }
+                
+                }
+            }
+        }
+    }
+
+    .login {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin-top: 2rem;
+
+        a {
+            margin-bottom: 1rem;
+
+            &.register-btn {
+                width: 100%;
+                padding: 0.8rem 0;
+                border: 2px solid $medium-gray;
+                border-radius: 1rem;
+                text-align: center;
+            }
+        }
+    }
+}
