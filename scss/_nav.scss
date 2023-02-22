@@ -1,3 +1,5 @@
+$lg: map-get($map: $breakpoints, $key: 'lg');
+
 .nav-toggle {
     position: relative;
     z-index: 999;
@@ -10,6 +12,12 @@
 
     &.close {
         background: url('../images/icon-close-menu.svg') center no-repeat;
+    }
+
+    @media (min-width: $lg) {
+        & {
+            display: none;
+        }
     }
 }
 
@@ -28,6 +36,19 @@
 
     transition: right 0.4s ease-in-out;
 
+    @media (min-width: $lg) {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        top: 0;
+        right: 0;
+        padding: 0;
+        background: none;
+    }
+
     &.slide-in {
         right: 0;
     }
@@ -44,10 +65,19 @@
             flex-direction: column;
             align-items: start;
 
+            @media (min-width: $lg) {
+                flex-direction: row;
+            }
+
             .nav-item {
+                position: relative;
                 padding: 0.4rem;
                 margin-bottom: 0.8rem;
                 cursor: pointer;
+                
+                @media (min-width: $lg) {
+                    margin-bottom: 0;
+                }
 
                 &.dropdown {
                     .arrow {
@@ -81,8 +111,23 @@
                     transition: height 0.4s ease-in-out;
                     overflow: hidden;
 
+                    @media (min-width: $lg) {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        transform: translateY(110%);
+                        // display: flex;
+                        padding: 1rem;
+                        width: 9rem;
+                        background: white;
+                    }
+
                     .menu-item {
                         margin: 1rem;
+
+                        @media (min-width: $lg) {
+                            margin: 0;
+                        }
 
                         &:last-child {
                             margin-bottom: 0;
@@ -129,8 +174,18 @@
         align-items: center;
         margin-top: 2rem;
 
+        @media (min-width: $lg) {
+            flex-direction: row;
+            gap: 2rem;
+            margin-top: 0;
+        }
+
         a {
             margin-bottom: 1rem;
+
+            @media (min-width: $lg) {
+                margin-bottom: 0;
+            }
 
             &.register-btn {
                 width: 100%;
@@ -138,6 +193,10 @@
                 border: 2px solid $medium-gray;
                 border-radius: 1rem;
                 text-align: center;
+
+                @media (min-width: $lg) {
+                    padding: 0.8rem 1rem;
+                }
             }
         }
     }

@@ -132,6 +132,11 @@ h1 {
 .nav-toggle.close {
   background: url("../images/icon-close-menu.svg") center no-repeat;
 }
+@media (min-width: 960px) {
+  .nav-toggle {
+    display: none;
+  }
+}
 
 .nav-sidebar {
   position: absolute;
@@ -145,6 +150,20 @@ h1 {
   color: hsl(0deg, 0%, 41%);
   transition: right 0.4s ease-in-out;
 }
+@media (min-width: 960px) {
+  .nav-sidebar {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 0;
+    background: none;
+  }
+}
 .nav-sidebar.slide-in {
   right: 0;
 }
@@ -156,10 +175,21 @@ h1 {
   flex-direction: column;
   align-items: start;
 }
+@media (min-width: 960px) {
+  .nav-sidebar .nav .nav-content {
+    flex-direction: row;
+  }
+}
 .nav-sidebar .nav .nav-content .nav-item {
+  position: relative;
   padding: 0.4rem;
   margin-bottom: 0.8rem;
   cursor: pointer;
+}
+@media (min-width: 960px) {
+  .nav-sidebar .nav .nav-content .nav-item {
+    margin-bottom: 0;
+  }
 }
 .nav-sidebar .nav .nav-content .nav-item.dropdown .arrow {
   transform: rotate(180deg);
@@ -186,8 +216,24 @@ h1 {
   transition: height 0.4s ease-in-out;
   overflow: hidden;
 }
+@media (min-width: 960px) {
+  .nav-sidebar .nav .nav-content .nav-item .submenu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translateY(110%);
+    padding: 1rem;
+    width: 9rem;
+    background: white;
+  }
+}
 .nav-sidebar .nav .nav-content .nav-item .submenu .menu-item {
   margin: 1rem;
+}
+@media (min-width: 960px) {
+  .nav-sidebar .nav .nav-content .nav-item .submenu .menu-item {
+    margin: 0;
+  }
 }
 .nav-sidebar .nav .nav-content .nav-item .submenu .menu-item:last-child {
   margin-bottom: 0;
@@ -220,8 +266,20 @@ h1 {
   align-items: center;
   margin-top: 2rem;
 }
+@media (min-width: 960px) {
+  .nav-sidebar .login {
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 0;
+  }
+}
 .nav-sidebar .login a {
   margin-bottom: 1rem;
+}
+@media (min-width: 960px) {
+  .nav-sidebar .login a {
+    margin-bottom: 0;
+  }
 }
 .nav-sidebar .login a.register-btn {
   width: 100%;
@@ -229,6 +287,11 @@ h1 {
   border: 2px solid hsl(0deg, 0%, 41%);
   border-radius: 1rem;
   text-align: center;
+}
+@media (min-width: 960px) {
+  .nav-sidebar .login a.register-btn {
+    padding: 0.8rem 1rem;
+  }
 }
 
 .header {
@@ -239,6 +302,12 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 1.6rem 0;
+}
+@media (min-width: 960px) {
+  .header .wrapper {
+    justify-content: flex-start;
+    gap: 5rem;
+  }
 }
 
 .main {

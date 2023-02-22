@@ -1,3 +1,5 @@
+$lg: map-get($map: $breakpoints, $key: 'lg');
+
 .header {
     
     padding: 0 0.8rem;
@@ -8,5 +10,10 @@
         justify-content: space-between;
         align-items: center;
         padding: 1.6rem 0;
+
+        @media (min-width: $lg) {
+            justify-content: flex-start;
+            gap: 5rem;
+        }
     }
 }
