@@ -1,149 +1,125 @@
-$lg: map-get($map: $breakpoints, $key: 'lg');
-
 .nav-toggle {
     position: relative;
     z-index: 999;
     width: 2rem;
     height: 2rem;
-    padding: 0;
+    background: url('../images/icon-menu.svg') no-repeat center;
     border: none;
-    background: url('../images/icon-menu.svg') center no-repeat;
     cursor: pointer;
 
     &.close {
-        background: url('../images/icon-close-menu.svg') center no-repeat;
-    }
-
-    @media (min-width: $lg) {
-        & {
-            display: none;
-        }
+        background-image: url('../images/icon-close-menu.svg');
     }
 }
 
 .nav-sidebar {
     position: absolute;
     top: 0;
-    right: -64%;
+    right: 0;
     z-index: 99;
-    width: 64%;
-    height: 100%;
-
-    padding: 5.8rem 1.6rem;
-
+    width: 68%;
+    height: max(100%, 100vh);
+    padding: 5rem 1.6rem;
+    transform: translateX(100%);
     background: $almost-white;
-    color: $medium-gray;
-
-    transition: right 0.4s ease-in-out;
-
-    @media (min-width: $lg) {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        top: 0;
-        right: 0;
-        padding: 0;
-        background: none;
-    }
+    transition: transform 0.4s ease-in-out;
 
     &.slide-in {
-        right: 0;
-    }
-
-    a {
-        color: $medium-gray;
+        transform: translateX(0);
     }
 
     .nav {
+        margin-bottom: 2.4rem;
 
         .nav-content {
 
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-
-            @media (min-width: $lg) {
-                flex-direction: row;
-            }
-
             .nav-item {
-                position: relative;
-                padding: 0.4rem;
-                margin-bottom: 0.8rem;
+                margin-bottom: 1.4rem;
                 cursor: pointer;
-                
-                @media (min-width: $lg) {
-                    margin-bottom: 0;
-                }
+                overflow: hidden;
 
-                &.dropdown {
-                    .arrow {
-                        transform: rotate(180deg);
-                    }
+                // &::before, &::after {
+                //     content: '';
+                //     display: block;
+                //     margin-bottom: 1.4rem;
+                // }
 
-                    .submenu-feature {
-                        height: 158px;
-                    }
-
-                    .submenu-company {
-                        height: 108px;
-                    }
-                }
+                // &::before {
+                //     margin-top: 1.4rem;
+                // }
 
                 .arrow {
                     display: inline-block;
                     width: 10px;
                     height: 6px;
-                    margin-left: 1rem;
+                    margin-left: 0.8rem;
                     vertical-align: middle;
-                    transform: rotate(0);
                     background: url('../images/icon-arrow-down.svg');
-                    transition: transform 0.4s ease-in-out;
                 }
 
                 .submenu {
-
-                    display: block;
+                    // display: flex;
+                    // flex-direction: column;
+                    // justify-content: flex-end;
+                    // padding: 1.4rem 0 0 1.4rem;
+                    // padding: 1.4rem;
+                    // padding: 0;
+                    // padding-top: 1.4rem;
+                    padding-top: 0;
+                    padding-left: 1.4rem;
+                    // margin: 1.4rem 0;
+                    // margin-top: 1.4rem;
                     height: 0;
-                    transition: height 0.4s ease-in-out;
-                    overflow: hidden;
+                    // width: 0;
+                    // margin-top: 1.4rem;
+                    transition: height 0.33s ease-in-out,
+                    padding-top 0.07s 0.33s ease-in-out;
+                    // transition: height ,padding-top 0.4s ease-in-out;
+                    // overflow: hidden;
 
-                    @media (min-width: $lg) {
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
-                        transform: translateY(110%);
-                        // display: flex;
-                        padding: 1rem;
-                        width: 9rem;
-                        background: white;
+                    // &.open {
+                    //     padding-top: 1.4rem;
+                    // }
+
+                    // &::before {
+                    //     content: '';
+                    //     display: block;
+                    //     margin-bottom: 0;
+                    // }
+
+                    // &.submenu-feature.open::before {
+                    //     margin-bottom: 1.4rem;
+                    // }
+
+                    &.submenu-feature.open {
+                        padding-top: 1.4rem;
+                        height: calc(133.55px + 1.4rem);
+                    }
+
+                    &.submenu-company.open {
+                        height: 90px;
                     }
 
                     .menu-item {
-                        margin: 1rem;
-
-                        @media (min-width: $lg) {
-                            margin: 0;
-                        }
+                        // padding: 0.1rem;
+                        margin-bottom: 1rem;
 
                         &:last-child {
                             margin-bottom: 0;
                         }
 
                         .icon {
-                            position: relative;
-                            top: 0.09rem;
                             display: inline-block;
-                            width: 17px;
-                            height: 17px;
-                            margin-right: 0.6rem;
+                            width: 1rem;
+                            height: 1rem;
+                            margin-right: 0.8rem;
+
                             background: {
                                 repeat: no-repeat;
                                 position: center;
                             }
+
+                            vertical-align: -14%;
 
                             &.icon-todo {
                                 background-image: url('../images/icon-todo.svg');
@@ -162,7 +138,6 @@ $lg: map-get($map: $breakpoints, $key: 'lg');
                             }
                         }
                     }
-                
                 }
             }
         }
@@ -170,33 +145,18 @@ $lg: map-get($map: $breakpoints, $key: 'lg');
 
     .login {
         display: flex;
-        flex-flow: column;
+        flex-direction: column;
         align-items: center;
-        margin-top: 2rem;
-
-        @media (min-width: $lg) {
-            flex-direction: row;
-            gap: 2rem;
-            margin-top: 0;
-        }
-
+        
         a {
-            margin-bottom: 1rem;
-
-            @media (min-width: $lg) {
-                margin-bottom: 0;
-            }
+            margin-bottom: 0.8rem;
 
             &.register-btn {
                 width: 100%;
-                padding: 0.8rem 0;
+                padding: 0.6rem;
                 border: 2px solid $medium-gray;
                 border-radius: 1rem;
                 text-align: center;
-
-                @media (min-width: $lg) {
-                    padding: 0.8rem 1rem;
-                }
             }
         }
     }

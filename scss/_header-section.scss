@@ -1,19 +1,11 @@
-$lg: map-get($map: $breakpoints, $key: 'lg');
-
 .header {
-    
-    padding: 0 0.8rem;
+
+    color: $medium-gray;
 
     .wrapper {
-
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.6rem 0;
-
-        @media (min-width: $lg) {
-            justify-content: flex-start;
-            gap: 5rem;
-        }
+        padding: 1.4rem 1rem;
     }
 }
